@@ -12,6 +12,12 @@
             <GradientStop Color="{DynamicResource Color1}"/>
         </LinearGradientBrush>
     </Window.Background>
+    <Window.Resources>
+        <Style x:Key="style" TargetType="PasswordBox">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"></Setter>
+            <Setter Property="BorderBrush" Value="{x:Null}"></Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -31,9 +37,9 @@
         </Grid.ColumnDefinitions>
         <Menu Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top">
             <MenuItem Header="Действия">
-                <MenuItem Header="Справка" Width="Auto"></MenuItem>
+                <MenuItem Header="Справка" Width="Auto" Click="Help_OnClick"></MenuItem>
                 <Separator></Separator>
-                <MenuItem Header="Выход"></MenuItem>
+                <MenuItem Header="Выход" Click="MenuExit_OnClick"></MenuItem>
             </MenuItem>
         </Menu>
         <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom">Создание администратора</Label>
@@ -41,11 +47,11 @@
         <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" IsReadOnly="True">Admin</TextBox>
         <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">Пароль</Label>
         <PasswordBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"
-                     Name="Password"></PasswordBox>
-        <Label Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom"
-               Name="Password1">Повторите пароль</Label>
-        <PasswordBox Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"></PasswordBox>
+                     Name="Password" PasswordChanged="Password_OnPasswordChanged"></PasswordBox>
+        <Label Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">Повторите пароль</Label>
+        <PasswordBox Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                     Name="Password1" PasswordChanged="Password_OnPasswordChanged" ></PasswordBox>
         <Button Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="110"
-                Name="Save" Click="Save_Click">Сохранить</Button>
+                Name="Save" Click="Save_Click" IsDefault="True">Сохранить</Button>
     </Grid>
 </Window>

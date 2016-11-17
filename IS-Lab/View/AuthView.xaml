@@ -35,6 +35,6 @@
         <PasswordBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"
                  Name="Password"></PasswordBox>
         <Button Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="110"
-                Name="Enter" Click="Enter_ClickHandler">Войти</Button>
+                Name="Enter" Click="Enter_ClickHandler" IsDefault="True">Войти</Button>
     </Grid>
 </Window>

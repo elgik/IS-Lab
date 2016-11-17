@@ -21,6 +21,7 @@ namespace IS_Lab.View
     /// </summary>
     public partial class CreateAdminView : Window
     {
+        private string validatation = null;
         public CreateAdminView()
         {
             InitializeComponent();
@@ -28,11 +29,46 @@ namespace IS_Lab.View
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            User admin = new User();
-            admin.Login = "Admin";
-            admin.Password = SecurityController.Encrypt(Password.Password);
-            EntityController.Add(admin);
-            Close();
+            if (validatation == null)
+            {
+                User admin = new User();
+                admin.Login = "Admin";
+                admin.Password = SecurityController.Encrypt(Password.Password);
+                EntityController.Add(admin);
+                AuthView window = new AuthView();
+                window.Show();                
+                Close();
+            }
+            else            
+                MessageBox.Show(validatation, "Ошибка сохранения", MessageBoxButton.OK, MessageBoxImage.Error);                                            
+        }
+
+        private void Password_OnPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (Password1.Password != Password.Password)
+            {               
+                Password1.BorderBrush = Brushes.Red;
+                
+                Password1.ToolTip =
+                    new ToolTip().Content = "Пароли не совпадают";
+                validatation = "Пароли не совпадают";
+            }
+            else
+            {
+                Password1.BorderBrush = Brushes.White;
+                Password1.ToolTip = null;
+                validatation = null;
+            }
+        }
+
+        private void Help_OnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Собственность студента группы ИДБ-13-15\r\nПопова Дениса\r\nAll rights reserved ©");
+        }
+
+        private void MenuExit_OnClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

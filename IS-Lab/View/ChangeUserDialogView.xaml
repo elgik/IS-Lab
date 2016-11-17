@@ -20,6 +20,8 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="0.5*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -41,16 +43,18 @@
                  Name="Login"></TextBox>
         <Button Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110"
                 Name="Delete" Click="Delete_Click">Удалить</Button>
-        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+        <Label Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">Временный пароль</Label>
+        <TextBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" IsReadOnly="True" Name="TempPass"></TextBox>
+        <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
         <Label HorizontalAlignment="Left" VerticalAlignment="Center">Блокировка</Label>
         <CheckBox HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,0,0,0"
                   Name ="Block"></CheckBox>
         </StackPanel>
-        <Button Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110"
+        <Button Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110"
                 Name="RestrictionButton" Click="RestrictionButton_Click">Ограничения</Button>
         <Button Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110"
                 Name ="ForceChange" Click ="ForceChange_Click">Замена пароля</Button>
-        <Button Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110"
-                Name="Save" Click="Save_Click">Сохранить</Button>
+        <Button Grid.Row="7" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110"
+                Name="Save" Click="Save_Click" IsDefault="True">Сохранить</Button>
     </Grid>
 </Window>

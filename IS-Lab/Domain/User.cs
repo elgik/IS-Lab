@@ -49,8 +49,12 @@ namespace IS_Lab.Domain
         /// </summary>
         public bool IsLowerCase { get; set; }
         /// <summary>
-        /// Признак наличия ограничений на пароль
+        /// Ограничение на длину
         /// </summary>
+        public bool IsLength { get; set; }
+        /// <summary>
+        /// Признак наличия ограничений на пароль
+        /// </summary>                
         [NotMapped]
         public bool IsRestricted => (IsUpperCase || IsLowerCase || IsDigits || IsSymbols);
         /// <summary>

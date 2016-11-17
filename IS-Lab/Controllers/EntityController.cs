@@ -36,16 +36,10 @@ namespace IS_Lab.Controllers
         /// <param name="entity"></param>
         public static void Add(User entity)
         {
-            Context db = new Context();
-            //if (entity != null && !db.Users.Contains(entity))
-            //{
-                db.Users.Add(entity);
-                db.SaveChanges();
-            //}
-            //else
-            //{
-            //    throw new ArgumentException("Ошибка при добавлении. Пользователь уже существует");
-            //}
+            Context db = new Context();            
+            db.Users.Add(entity);
+            db.Entry(entity).State = EntityState.Added;
+            db.SaveChanges();            
         }
         /// <summary>
         /// Обновление пользователя
@@ -54,6 +48,7 @@ namespace IS_Lab.Controllers
         public static void UpdateUser(User entity)
         {
             Context db = new Context();
+            db.Entry(entity).State = EntityState.Modified;
             db.SaveChanges();            
         }
         /// <summary>
@@ -62,16 +57,10 @@ namespace IS_Lab.Controllers
         /// <param name="entity"></param>
         public static void Delete(User entity)
         {
-            Context db = new Context();
-            if (entity != null && db.Users.Contains(entity))
-            {
-                db.Users.Remove(entity);
-                db.SaveChanges();
-            }
-            else
-            {
-                throw new NullReferenceException("При удалении произошла ошибка. Пользователь не найден");
-            }
+            Context db = new Context();                        
+            db.Users.Remove(entity);
+            db.Entry(entity).State = EntityState.Deleted;
+            db.SaveChanges();                        
         }
         /// <summary>
         /// Получение списка всех пользователей
@@ -79,8 +68,7 @@ namespace IS_Lab.Controllers
         /// <returns></returns>
         public static IEnumerable<User> GetAllUsers()
         {
-            Context db = new Context();
-            
+            Context db = new Context();            
             return db.Users.ToList();
         }
     }

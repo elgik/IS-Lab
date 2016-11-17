@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Lab.View"
         mc:Ignorable="d"
-        Title="AdminView" Height="480" Width="640" Foreground="{x:Null}">
+        Title="AdminView" MinHeight="480" MinWidth="733.5" Foreground="{x:Null}" Width="733.5">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black"/>
@@ -44,6 +44,34 @@
                 <DataGridTextColumn Header="Логин" Width="Auto"
                                     Binding="{Binding Path=Login}">
                 </DataGridTextColumn>
+                <DataGridCheckBoxColumn
+                                    Header="Блокировка" Width="Auto"
+                                    Binding="{Binding Path=IsBlocked}">
+                </DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn
+                                    Header="Нужна смена пароля" Width="Auto"
+                                    Binding="{Binding Path=IsBlocked}">
+                </DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn
+                                    Header="Нужны символы" Width="Auto"
+                                    Binding="{Binding Path=IsSymbols}">
+                </DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn
+                                    Header="Нужны цифры" Width="Auto"
+                                    Binding="{Binding Path=IsDigits}">
+                </DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn
+                                    Header="Нужны заглавные" Width="Auto"
+                                    Binding="{Binding Path=IsUpperCase}">
+                </DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn
+                                    Header="Нужны строчные" Width="Auto"
+                                    Binding="{Binding Path=IsLowerCase}">
+                </DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn
+                                    Header="Длина > 8" Width="Auto"
+                                    Binding="{Binding Path=IsLength}">
+                </DataGridCheckBoxColumn>
                 <DataGridTextColumn></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
@@ -53,7 +81,7 @@
         <Button Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Width="110"
                 Name="Find" Click="Find_Click" IsDefault="True">Найти</Button>
         <Button Grid.Row="3" Grid.Column="0"
-                Name="ChangePass" Click="ChangePass_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110">Изменить</Button>
+                Name="ChangePass" Click="ChangePass_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110">Мой пароль</Button>
         <Button Grid.Row="3" Grid.Column="1"
                 Name="Logout" Click="Logout_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110">Перезайти</Button>
         <Button Grid.Row="3" Grid.Column="2" 

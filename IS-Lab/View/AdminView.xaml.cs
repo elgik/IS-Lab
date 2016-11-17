@@ -31,19 +31,21 @@ namespace IS_Lab.View
         {
             CreateUserDialogView dialog = new CreateUserDialogView();
             dialog.ShowDialog();
-            GridUsers.ItemsSource = EntityController.GetAllUsers();
+            RefreshGrid();
         }
 
         private void Find_Click(object sender, RoutedEventArgs e)
         {
             ChangeUserDialogView dialog = new ChangeUserDialogView(GridUsers.SelectedItem as User);
             dialog.ShowDialog();
-            GridUsers.ItemsSource = EntityController.GetAllUsers();
+            RefreshGrid();
         }
 
         private void ChangePass_Click(object sender, RoutedEventArgs e)
         {
-            UserView userView = new UserView(EntityController.LoadByLogin("Admin"));
+            ChangeUserDialogView changeUserDialogView = new ChangeUserDialogView(EntityController.LoadByLogin("Admin"));
+            changeUserDialogView.Show();
+            RefreshGrid();
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
@@ -60,8 +62,16 @@ namespace IS_Lab.View
 
         private void GridUsers_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            ChangeUserDialogView dialog = new ChangeUserDialogView((User)GridUsers.SelectedItem);
-            dialog.ShowDialog();
+            if (GridUsers.SelectedItem != null)
+            {
+                ChangeUserDialogView dialog = new ChangeUserDialogView((User) GridUsers.SelectedItem);
+                dialog.ShowDialog();
+                RefreshGrid();
+            }
+        }
+
+        private void RefreshGrid()
+        {
             GridUsers.ItemsSource = EntityController.GetAllUsers();
         }
     }

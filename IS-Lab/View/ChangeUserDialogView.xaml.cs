@@ -27,7 +27,19 @@ namespace IS_Lab.View
         {
             InitializeComponent();
             selectedUser = user;
-            Login.Text = selectedUser.Login;
+            if (selectedUser == null)
+                Close();
+            else
+            {
+                Login.Text = selectedUser.Login;
+                if (selectedUser.IsAdmin)
+                {
+                    Block.IsEnabled = false;
+                    Delete.IsEnabled = false;
+                    RestrictionButton.IsEnabled = false;
+                    ForceChange.IsEnabled = false;
+                }
+            }
         }
 
         private void RestrictionButton_Click(object sender, RoutedEventArgs e)
@@ -40,7 +52,8 @@ namespace IS_Lab.View
         {
             string newPass = Utils.GeneratePassword();
             selectedUser.Password = SecurityController.Encrypt(newPass);
-            MessageBox.Show("Временный пароль:\r\n" + newPass, "Пароль сформирован", MessageBoxButton.OK, MessageBoxImage.Information);
+            selectedUser.IsNeedChangePassword = true;
+            TempPass.Text = newPass;
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)

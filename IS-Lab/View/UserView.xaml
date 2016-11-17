@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Lab.View"
         mc:Ignorable="d"
-        Title="UserView" Height="375.61" Width="310" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" BorderThickness="0">
+        Title="UserView" Height="375.61" Width="310" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" BorderThickness="0" Closing="UserView_OnClosing">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FF474747" Offset="1"/>
@@ -43,10 +43,10 @@
                Name="OldPassword"></PasswordBox>
         <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">Новый пароль</Label>
         <PasswordBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"
-               Name="NewPassword"></PasswordBox>
+               Name="NewPassword" PasswordChanged="Validate"></PasswordBox>
         <Label Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">Повторите пароль</Label>
         <PasswordBox Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"
-               Name="NewPassword2"></PasswordBox>
+               Name="NewPassword1" PasswordChanged="Validate"></PasswordBox>
         <Button Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="110"
                Name="Save" Click="Save_Click">Сохранить</Button>
     </Grid>

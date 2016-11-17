@@ -15,8 +15,7 @@ namespace IS_Lab.View
             {
                 CreateAdminView window = new CreateAdminView();
                 Hide();
-                window.ShowDialog();
-                Show();                
+                window.Show();   
             }
                 
         }
@@ -43,7 +42,7 @@ namespace IS_Lab.View
                 }
             }
             else
-                MessageBox.Show("Неправильный логин", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Пользователь не найден", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
     }
