@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,9 +37,17 @@ namespace IS_Lab.View
 
         private void Find_Click(object sender, RoutedEventArgs e)
         {
-            ChangeUserDialogView dialog = new ChangeUserDialogView(GridUsers.SelectedItem as User);
-            dialog.ShowDialog();
-            RefreshGrid();
+            if(string.IsNullOrEmpty(FindBox.Text) || string.IsNullOrWhiteSpace(FindBox.Text))
+                return;
+            User u = EntityController.LoadByLogin(FindBox.Text);
+            if (u != null)
+            {
+                ChangeUserDialogView dialog = new ChangeUserDialogView(u);
+                dialog.ShowDialog();
+                RefreshGrid();
+            }
+            else
+                MessageBox.Show("Пользователь не найден", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void ChangePass_Click(object sender, RoutedEventArgs e)

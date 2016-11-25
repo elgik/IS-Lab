@@ -110,10 +110,5 @@ namespace IS_Lab.View
                 validations[1] = null;
             }            
         }
-
-        private void ChangePasswordDialogView_OnClosing(object sender, CancelEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
     }
 }

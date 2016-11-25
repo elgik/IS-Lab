@@ -32,12 +32,16 @@ namespace IS_Lab.View
             else
             {
                 Login.Text = selectedUser.Login;
+                Block.IsChecked = selectedUser.IsBlocked;
                 if (selectedUser.IsAdmin)
                 {
                     Block.IsEnabled = false;
                     Delete.IsEnabled = false;
                     RestrictionButton.IsEnabled = false;
                     ForceChange.IsEnabled = false;
+                    ForceChange.Visibility = Visibility.Hidden;
+                    PassLabel.Content = "Введите новый пароль";
+                    TempPass.IsReadOnly = false;
                 }
             }
         }
@@ -45,7 +49,7 @@ namespace IS_Lab.View
         private void RestrictionButton_Click(object sender, RoutedEventArgs e)
         {
             RestrictionsDialogView dialog = new RestrictionsDialogView(selectedUser);
-            dialog.Show();
+            dialog.ShowDialog();
         }
 
         private void ForceChange_Click(object sender, RoutedEventArgs e)
@@ -63,6 +67,10 @@ namespace IS_Lab.View
                 MessageBox.Show("Пользователь с таким логином уже существует", "Ошибка при сохранении", MessageBoxButton.OK, MessageBoxImage.Error);
             else if(selectedUser.Login != Login.Text)
                 selectedUser.Login = Login.Text;
+            if (selectedUser.IsAdmin)
+            {
+                selectedUser.Password = SecurityController.Encrypt(TempPass.Text);
+            }
             EntityController.UpdateUser(selectedUser);
             Close();
         }

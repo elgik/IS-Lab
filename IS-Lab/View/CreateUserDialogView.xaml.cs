@@ -30,6 +30,12 @@ namespace IS_Lab.View
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            if (EntityController.LoadByLogin(Login.Text) != null)
+            {
+                MessageBox.Show("Пользователь с таким логином уже существует!", "Ошибка", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
+            }
             newUser.Login = Login.Text;
             newUser.IsNeedChangePassword = true;
             EntityController.Add(newUser);
@@ -39,7 +45,7 @@ namespace IS_Lab.View
         private void RestrictionButton_Click(object sender, RoutedEventArgs e)
         {
             RestrictionsDialogView dialog = new RestrictionsDialogView(newUser);
-            dialog.Show();            
+            dialog.ShowDialog();            
         }
 
         private void ForcePass_Click(object sender, RoutedEventArgs e)

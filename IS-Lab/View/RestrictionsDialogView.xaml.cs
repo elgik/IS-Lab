@@ -33,6 +33,14 @@ namespace IS_Lab.View
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            //Сверяем, не поменялись ли ограничения. Если да, то принуждаем сменить пароль
+            if (user.IsDigits != (bool) Digits.IsChecked
+                || user.IsLowerCase != (bool) Lower.IsChecked
+                || user.IsUpperCase != (bool) Upper.IsChecked
+                || user.IsSymbols != (bool) Symbols.IsChecked)
+                user.IsNeedChangePassword = true;
+            
+            //Присваеваем новые значения
             user.IsDigits = (bool) Digits.IsChecked;
             user.IsLowerCase = (bool)Lower.IsChecked;
             user.IsUpperCase = (bool)Upper.IsChecked;

@@ -18,7 +18,11 @@ namespace IS_Lab.Controllers
         public static User LoadByLogin(string login)
         {
             Context db = new Context();
-            return db.Users.SingleOrDefault(u => u.Login == login);
+            User user = db.Users.SingleOrDefault(u => u.Login == login);
+            if (user.Login.Equals(login))
+                return user;
+            else
+                return null;
         }
         /// <summary>
         /// Загрузка по ключу (Id)
@@ -58,8 +62,8 @@ namespace IS_Lab.Controllers
         public static void Delete(User entity)
         {
             Context db = new Context();                        
-            db.Users.Remove(entity);
             db.Entry(entity).State = EntityState.Deleted;
+            db.Users.Remove(entity);
             db.SaveChanges();                        
         }
         /// <summary>

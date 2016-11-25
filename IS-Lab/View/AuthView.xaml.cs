@@ -14,30 +14,40 @@ namespace IS_Lab.View
             if(EntityController.LoadByLogin("Admin") == null)
             {
                 CreateAdminView window = new CreateAdminView();
-                Hide();
+                Close();
                 window.Show();   
             }
                 
         }
         private void Enter_ClickHandler(object sender, RoutedEventArgs e)
         {
+            if ("Admin".Equals("ADMIN"))
+                MessageBox.Show("1111");
             User user = EntityController.LoadByLogin(Login.Text);
-            string result;
             if (user != null)
             {
-                result = SecurityController.Verify(Password.Password, user);
+                var result = SecurityController.Verify(Password.Password, user);
                 if (result != null)
+                {
                     MessageBox.Show(result, "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
-                else if (user.IsAdmin)
+                    return;
+                }
+                if (user.IsBlocked)
+                {
+                    MessageBox.Show("Пользователь заблокирован!\r\nОбратитесь к администратору", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                if (user.IsAdmin)
                 {
                     AdminView adminView = new AdminView();
-                    Hide();
+                    Close();
                     adminView.Show();
                 }
                 else
                 {
                     UserView userView = new UserView(user);
-                    Hide();
+                    Close();
                     userView.Show();
                 }
             }

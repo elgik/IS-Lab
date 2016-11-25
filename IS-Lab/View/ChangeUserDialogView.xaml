@@ -43,7 +43,7 @@
                  Name="Login"></TextBox>
         <Button Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110"
                 Name="Delete" Click="Delete_Click">Удалить</Button>
-        <Label Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">Временный пароль</Label>
+        <Label Name="PassLabel" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">Временный пароль</Label>
         <TextBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" IsReadOnly="True" Name="TempPass"></TextBox>
         <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
         <Label HorizontalAlignment="Left" VerticalAlignment="Center">Блокировка</Label>

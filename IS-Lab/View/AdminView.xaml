@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Lab.View"
         mc:Ignorable="d"
-        Title="AdminView" MinHeight="480" MinWidth="733.5" Foreground="{x:Null}" Width="733.5">
+        Title="AdminView" MinHeight="480" Foreground="{x:Null}" MinWidth="826.5" Width="826.5" Height="480">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black"/>
@@ -38,41 +38,44 @@
                   Name="GridUsers" AutoGenerateColumns="False" IsReadOnly="True"
                   MouseDoubleClick="GridUsers_MouseDoubleClick">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Width="Auto"
+                <DataGridTextColumn Header="Id" Width="1*"
                                     Binding="{Binding Path=Id}">
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Логин" Width="Auto"
+                <DataGridTextColumn Header="Логин" Width="1*"
                                     Binding="{Binding Path=Login}">
                 </DataGridTextColumn>
                 <DataGridCheckBoxColumn
-                                    Header="Блокировка" Width="Auto"
+                                    Header="Блокировка" Width="1*"
                                     Binding="{Binding Path=IsBlocked}">
                 </DataGridCheckBoxColumn>
                 <DataGridCheckBoxColumn
-                                    Header="Нужна смена пароля" Width="Auto"
-                                    Binding="{Binding Path=IsBlocked}">
+                                    Header="Нужна смена пароля" Width="1*"
+                                    Binding="{Binding Path=IsNeedChangePassword}">
                 </DataGridCheckBoxColumn>
                 <DataGridCheckBoxColumn
-                                    Header="Нужны символы" Width="Auto"
+                                    Header="Ограничен" Width="1*"
+                                    Binding="{Binding Path=IsRestricted, Mode=OneTime}">
+                </DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn
+                                    Header="Нужны символы" Width="1*"
                                     Binding="{Binding Path=IsSymbols}">
                 </DataGridCheckBoxColumn>
                 <DataGridCheckBoxColumn
-                                    Header="Нужны цифры" Width="Auto"
+                                    Header="Нужны цифры" Width="1*"
                                     Binding="{Binding Path=IsDigits}">
                 </DataGridCheckBoxColumn>
                 <DataGridCheckBoxColumn
-                                    Header="Нужны заглавные" Width="Auto"
+                                    Header="Нужны заглавные" Width="1*"
                                     Binding="{Binding Path=IsUpperCase}">
                 </DataGridCheckBoxColumn>
                 <DataGridCheckBoxColumn
-                                    Header="Нужны строчные" Width="Auto"
+                                    Header="Нужны строчные" Width="1*"
                                     Binding="{Binding Path=IsLowerCase}">
                 </DataGridCheckBoxColumn>
                 <DataGridCheckBoxColumn
-                                    Header="Длина > 8" Width="Auto"
+                                    Header="Длина > 8" Width="1*"
                                     Binding="{Binding Path=IsLength}">
                 </DataGridCheckBoxColumn>
-                <DataGridTextColumn></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <TextBox Name="FindBox" Margin="20,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"></TextBox>

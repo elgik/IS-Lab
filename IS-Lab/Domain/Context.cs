@@ -10,7 +10,10 @@ namespace IS_Lab.Domain
     /// </summary>
     public class Context : DbContext
     {
-        public Context() : base("IS-Lab") { }
+        public Context() : base("IS-Lab")
+        {
+            Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+        }
         /// <summary>
         /// Пользователи
         /// </summary>
