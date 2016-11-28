@@ -13,16 +13,13 @@ namespace IS_Lab.View
             InitializeComponent();
             if(EntityController.LoadByLogin("Admin") == null)
             {
-                CreateAdminView window = new CreateAdminView();
+                CreateAdminView window = new CreateAdminView();                
+                window.Show();
                 Close();
-                window.Show();   
-            }
-                
+            }                
         }
         private void Enter_ClickHandler(object sender, RoutedEventArgs e)
-        {
-            if ("Admin".Equals("ADMIN"))
-                MessageBox.Show("1111");
+        {            
             User user = EntityController.LoadByLogin(Login.Text);
             if (user != null)
             {
@@ -30,6 +27,8 @@ namespace IS_Lab.View
                 if (result != null)
                 {
                     MessageBox.Show(result, "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+                    user.TryCount++;
+                    EntityController.UpdateUser(user);
                     return;
                 }
                 if (user.IsBlocked)
@@ -40,12 +39,16 @@ namespace IS_Lab.View
                 }
                 if (user.IsAdmin)
                 {
+                    user.TryCount = 0;
+                    EntityController.UpdateUser(user);
                     AdminView adminView = new AdminView();
                     Close();
                     adminView.Show();
                 }
                 else
                 {
+                    user.TryCount = 0;
+                    EntityController.UpdateUser(user);
                     UserView userView = new UserView(user);
                     Close();
                     userView.Show();

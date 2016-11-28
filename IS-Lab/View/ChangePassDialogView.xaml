@@ -21,8 +21,6 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -37,17 +35,13 @@
             </MenuItem>
         </Menu>
         <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom">Вам нужно сменить пароль</Label>
-        <Label Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">Старый пароль</Label>
+        <Label Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">Новый пароль</Label>
         <PasswordBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"
-                     Name="OldPassword">
-        </PasswordBox>
-        <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">Новый пароль</Label>
-        <PasswordBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"
                      Name="NewPassword" PasswordChanged="Validate"></PasswordBox>
-        <Label Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">Повторите пароль</Label>
-        <PasswordBox Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+        <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">Повторите пароль</Label>
+        <PasswordBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"
                      Name="NewPassword1" PasswordChanged="Validate"></PasswordBox>
-        <Button Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="110"
+        <Button Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="110"
                 Name="Save" Click="Save_Click">Сохранить</Button>
     </Grid>
 </Window>

@@ -19,7 +19,7 @@ namespace IS_Lab.Controllers
         {
             Context db = new Context();
             User user = db.Users.SingleOrDefault(u => u.Login == login);
-            if (user.Login.Equals(login))
+            if (user != null && user.Login.Equals(login))
                 return user;
             else
                 return null;

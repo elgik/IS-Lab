@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Lab.View"
         mc:Ignorable="d"
-        Title="UserView" Height="375.61" Width="310" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" BorderThickness="0" Closing="UserView_OnClosing">
+        Title="UserView" Height="375.61" Width="310" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" BorderThickness="0">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FF474747" Offset="1"/>
@@ -33,7 +33,7 @@
             <MenuItem Header="Действия">
                 <MenuItem Header="Справка" Width="Auto"></MenuItem>
                 <Separator></Separator>
-                <MenuItem Header="Выход"></MenuItem>
+                <MenuItem Header="Перезайти" Name="Exit" Click="Exit_OnClick"></MenuItem>
             </MenuItem>
         </Menu>
         <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom"

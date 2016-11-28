@@ -31,7 +31,13 @@ namespace IS_Lab.Domain
         /// <summary>
         /// Признак блокировки
         /// </summary>
-        public bool IsBlocked { get; set; }
+        [NotMapped]
+        private bool isBlocked;
+        public bool IsBlocked
+        {
+            get { return isBlocked || TryCount == 5; }
+            set { isBlocked = value; }
+        }
         /// <summary>
         /// Необходимость использования символов в пароле
         /// </summary>
@@ -66,5 +72,9 @@ namespace IS_Lab.Domain
         /// Необходима смена пароля
         /// </summary>        
         public bool IsNeedChangePassword { get; set; }
+        /// <summary>
+        /// Количество попыток ввода пароля
+        /// </summary>
+        public int TryCount { get; set; }
     }
 }

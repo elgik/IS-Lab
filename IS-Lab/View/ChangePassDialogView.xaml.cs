@@ -34,9 +34,7 @@ namespace IS_Lab.View
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            string result = null;
-
-            if (string.IsNullOrEmpty(NewPassword.Password) || string.IsNullOrEmpty(NewPassword1.Password) || string.IsNullOrEmpty(OldPassword.Password))
+            if (string.IsNullOrEmpty(NewPassword.Password) || string.IsNullOrEmpty(NewPassword1.Password))
             {
                 MessageBox.Show("Поля обязательны к заполнению", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;                
@@ -53,18 +51,13 @@ namespace IS_Lab.View
                 MessageBox.Show(validations[1],"Ошибка",MessageBoxButton.OK,MessageBoxImage.Error);
                 return;
             }
-                        
-            result = SecurityController.Verify(OldPassword.Password, currentUser);
-
-            if (result != null)
-                MessageBox.Show(result, "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
-            else
+            if (currentUser != null)
             {
                 currentUser.Password = SecurityController.Encrypt(NewPassword.Password);
                 currentUser.IsNeedChangePassword = false;
                 EntityController.UpdateUser(currentUser);
                 Close();
-            }
+            }            
         }
 
 

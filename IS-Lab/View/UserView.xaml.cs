@@ -73,10 +73,6 @@ namespace IS_Lab.View
             }
         }
 
-        private void UserView_OnClosing(object sender, CancelEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
 
         private void Validate(object sender, RoutedEventArgs e)
         {
@@ -119,6 +115,13 @@ namespace IS_Lab.View
                 NewPassword1.ToolTip = null;
                 validations[1] = null;
             }
+        }
+
+        private void Exit_OnClick(object sender, RoutedEventArgs e)
+        {
+            AuthView authView = new AuthView();
+            this.Close();
+            authView.Show();
         }
     }
 }
