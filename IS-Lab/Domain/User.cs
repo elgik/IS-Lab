@@ -35,7 +35,7 @@ namespace IS_Lab.Domain
         private bool isBlocked;
         public bool IsBlocked
         {
-            get { return isBlocked || TryCount == 5; }
+            get { return isBlocked || TryCount == 3; }
             set { isBlocked = value; }
         }
         /// <summary>

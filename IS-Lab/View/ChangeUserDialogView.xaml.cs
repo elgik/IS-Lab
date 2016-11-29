@@ -76,10 +76,16 @@ namespace IS_Lab.View
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
-        {
-            EntityController.Delete(selectedUser);
-            MessageBox.Show("Пользователь удалён", "База обновлена", MessageBoxButton.OK, MessageBoxImage.Information);
-            Close();
+        {                   
+            MessageBoxResult confirm = MessageBox.Show("Вы действительно хотите удалить пользователя?", "Удаление",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (confirm == MessageBoxResult.Yes)
+            {
+                EntityController.Delete(selectedUser);
+                MessageBox.Show("Пользователь удалён", "База обновлена", MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                Close();
+            }                        
         }
     }
 }

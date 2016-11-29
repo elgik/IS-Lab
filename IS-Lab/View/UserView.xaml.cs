@@ -49,14 +49,14 @@ namespace IS_Lab.View
                 MessageBox.Show("Поля обязательны к заполнению", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (validations[0] != null)
+            if (!string.IsNullOrEmpty(validations[0]))
             {
                 MessageBox.Show(
                     "Пароль не соответствует требованиям!\r\nНеобходимо использовать:\r\n" + validations[0], "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (validations[1] != null && validations[0] == null)
+            if (!string.IsNullOrEmpty(validations[1]) && string.IsNullOrEmpty(validations[0]))
             {
                 MessageBox.Show(validations[1], "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -64,12 +64,13 @@ namespace IS_Lab.View
 
             result = SecurityController.Verify(OldPassword.Password, currentUser);
 
-            if (result != null)
+            if (!string.IsNullOrEmpty(result))
                 MessageBox.Show(result, "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
             else
             {
                 currentUser.Password = SecurityController.Encrypt(NewPassword.Password);
                 EntityController.UpdateUser(currentUser);
+                MessageBox.Show("Данные успешно сохранены","",MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -122,6 +123,13 @@ namespace IS_Lab.View
             AuthView authView = new AuthView();
             this.Close();
             authView.Show();
+        }
+
+        private void Help_OnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Автор: Попов Денис Павлович" +
+                            "\r\nСтудент группы ИДБ-13-15", "", MessageBoxButton.OK,
+                MessageBoxImage.Information);
         }
     }
 }

@@ -24,19 +24,19 @@ namespace IS_Lab.View
             if (user != null)
             {
                 var result = SecurityController.Verify(Password.Password, user);
-                if (result != null)
-                {
-                    MessageBox.Show(result, "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
-                    user.TryCount++;
-                    EntityController.UpdateUser(user);
-                    return;
-                }
                 if (user.IsBlocked)
                 {
                     MessageBox.Show("Пользователь заблокирован!\r\nОбратитесь к администратору", "Ошибка",
                         MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
+                if (result != null)
+                {
+                    MessageBox.Show(result, "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+                    user.TryCount++;
+                    EntityController.UpdateUser(user);
+                    return;
+                }                
                 if (user.IsAdmin)
                 {
                     user.TryCount = 0;
