@@ -12,7 +12,7 @@ namespace IS_Lab.Domain
     /// <summary>
     /// Описание модели пользователя
     /// </summary>
-    public partial class User
+    public class User
     {
         /// <summary>
         /// Id пользователя
@@ -35,7 +35,7 @@ namespace IS_Lab.Domain
         private bool isBlocked;
         public bool IsBlocked
         {
-            get { return isBlocked || TryCount == 3; }
+            get { return isBlocked || TryCount >= 3; }
             set { isBlocked = value; }
         }
         /// <summary>

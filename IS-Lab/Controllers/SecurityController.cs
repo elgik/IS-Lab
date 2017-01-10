@@ -18,11 +18,9 @@ namespace IS_Lab.Controllers
             return BCrypt.Net.BCrypt.HashPassword(password, BCrypt.Net.BCrypt.GenerateSalt(12));
         }
 
-        public static string Verify(string password, User user)
+        public static bool Verify(string password, User user)
         {
-            return BCrypt.Net.BCrypt.Verify(password, user.Password)
-                ? null
-                : "Неправильный пароль";
+            return BCrypt.Net.BCrypt.Verify(password, user.Password);
         }
     }
 }

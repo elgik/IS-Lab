@@ -32,8 +32,9 @@
         <Menu Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top">
             <MenuItem Header="Действия">
                 <MenuItem Header="Справка" Width="Auto" Name="Help" Click="Help_OnClick"></MenuItem>
+                <MenuItem Header="Перезайти" Name="Logout" Click="Exit_OnClick"></MenuItem>
                 <Separator></Separator>
-                <MenuItem Header="Перезайти" Name="Exit" Click="Exit_OnClick"></MenuItem>
+                <MenuItem Header="Выход" Name="Exit" Click="Exit_OnClick"></MenuItem>
             </MenuItem>
         </Menu>
         <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom"

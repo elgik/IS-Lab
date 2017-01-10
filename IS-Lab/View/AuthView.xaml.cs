@@ -30,9 +30,9 @@ namespace IS_Lab.View
                         MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                if (result != null)
+                if (!result)
                 {
-                    MessageBox.Show(result, "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Неправильный пароль", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
                     user.TryCount++;
                     EntityController.UpdateUser(user);
                     return;
@@ -58,5 +58,14 @@ namespace IS_Lab.View
                 MessageBox.Show("Пользователь не найден", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
+        private void Help_OnClick(object sender, RoutedEventArgs e)
+        {
+            Utils.ShowAbout();
+        }
+
+        private void Exit_OnClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

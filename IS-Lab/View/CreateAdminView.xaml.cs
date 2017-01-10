@@ -60,15 +60,5 @@ namespace IS_Lab.View
                 validatation = null;
             }
         }
-
-        private void Help_OnClick(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Собственность студента группы ИДБ-13-15\r\nПопова Дениса\r\nAll rights reserved ©");
-        }
-
-        private void MenuExit_OnClick(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
     }
 }

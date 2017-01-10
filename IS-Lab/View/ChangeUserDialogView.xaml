@@ -30,13 +30,6 @@
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Menu Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <MenuItem Header="Действия">
-                <MenuItem Header="Справка" Width="Auto"></MenuItem>
-                <Separator></Separator>
-                <MenuItem Header="Выход"></MenuItem>
-            </MenuItem>
-        </Menu>
         <Label Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Bottom">Изменение пользователя</Label>
         <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">Логин</Label>
         <TextBox Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" IsReadOnly="True"

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace IS_Lab.Controllers
 {
@@ -16,6 +17,13 @@ namespace IS_Lab.Controllers
             for (int i = 0; i < 10; i++)
                 result += pwdChars[rnd.Next(0, 25)];
             return result;
+        }
+
+        public static void ShowAbout()
+        {
+            MessageBox.Show("Автор: Попов Денис Павлович" +
+                            "\r\nСтудент группы ИДБ-13-15", "", MessageBoxButton.OK,
+                MessageBoxImage.Information);
         }
     }
 }

@@ -16,7 +16,7 @@
                       Name="Lower">Прописные буквы</CheckBox>
             <CheckBox Margin="0,0,0,5"
                       Name="Symbols">Символы</CheckBox>
-            <Button HorizontalAlignment="Center" Padding="5"
+            <Button HorizontalAlignment="Center" Padding="3" Margin="0, 5, 0, 0"
                     Name="Save" Click="Save_Click">Сохранить</Button>
         </StackPanel>
     </GroupBox>

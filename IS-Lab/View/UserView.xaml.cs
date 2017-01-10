@@ -42,8 +42,6 @@ namespace IS_Lab.View
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            string result = null;
-
             if (string.IsNullOrEmpty(NewPassword.Password) || string.IsNullOrEmpty(NewPassword1.Password) || string.IsNullOrEmpty(OldPassword.Password))
             {
                 MessageBox.Show("Поля обязательны к заполнению", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -62,10 +60,8 @@ namespace IS_Lab.View
                 return;
             }
 
-            result = SecurityController.Verify(OldPassword.Password, currentUser);
-
-            if (!string.IsNullOrEmpty(result))
-                MessageBox.Show(result, "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (!SecurityController.Verify(OldPassword.Password, currentUser))
+                MessageBox.Show("Неправильный пароль", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
             else
             {
                 currentUser.Password = SecurityController.Encrypt(NewPassword.Password);
@@ -118,7 +114,7 @@ namespace IS_Lab.View
             }
         }
 
-        private void Exit_OnClick(object sender, RoutedEventArgs e)
+        private void Logout_OnClick(object sender, RoutedEventArgs e)
         {
             AuthView authView = new AuthView();
             this.Close();
@@ -127,9 +123,12 @@ namespace IS_Lab.View
 
         private void Help_OnClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Автор: Попов Денис Павлович" +
-                            "\r\nСтудент группы ИДБ-13-15", "", MessageBoxButton.OK,
-                MessageBoxImage.Information);
+            Utils.ShowAbout();
+        }
+
+        private void Exit_OnClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

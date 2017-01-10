@@ -83,5 +83,10 @@ namespace IS_Lab.View
         {
             GridUsers.ItemsSource = EntityController.GetAllUsers();
         }
+
+        private void Manual_OnClick(object sender, RoutedEventArgs e)
+        {
+            Utils.ShowAbout();
+        }
     }
 }

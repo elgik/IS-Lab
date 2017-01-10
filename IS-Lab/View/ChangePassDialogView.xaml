@@ -27,13 +27,6 @@
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <Menu Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <MenuItem Header="Действия">
-                <MenuItem Header="Справка" Width="Auto"></MenuItem>
-                <Separator></Separator>
-                <MenuItem Header="Выход"></MenuItem>
-            </MenuItem>
-        </Menu>
         <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom">Вам нужно сменить пароль</Label>
         <Label Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">Новый пароль</Label>
         <PasswordBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"

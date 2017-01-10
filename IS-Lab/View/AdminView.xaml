@@ -26,12 +26,12 @@
         </Grid.ColumnDefinitions>
         <Menu Grid.Row="0" Grid.ColumnSpan="3">
                 <MenuItem Header="Программа">
-                    <MenuItem Name="ChangeAdminPass" Header="Сменить пароль администратора"></MenuItem>
-                    <MenuItem Name="NewUser1" Header="Добавить пользователя"></MenuItem>
-                    <MenuItem Name="Manual" Header="Справка"></MenuItem>
-                    <MenuItem Name="ChangeUser" Header="Сменить пользователя"></MenuItem>
+                    <MenuItem Name="ChangeAdminPass" Header="Сменить пароль администратора" Click="ChangePass_Click"></MenuItem>
+                    <MenuItem Name="NewUser1" Header="Добавить пользователя" Click="NewUser_Click"></MenuItem>
+                    <MenuItem Name="Manual" Header="Справка" Click="Manual_OnClick"></MenuItem>
+                    <MenuItem Name="ChangeUser" Header="Сменить пользователя" Click="Logout_Click"></MenuItem>
                     <Separator></Separator>
-                    <MenuItem Header="Выйти"></MenuItem>
+                    <MenuItem Header="Выйти" Click="Exit_Click"></MenuItem>
                 </MenuItem>
         </Menu>
         <DataGrid Grid.Row="1" ColumnWidth="*" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"

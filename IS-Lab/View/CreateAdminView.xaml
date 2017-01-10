@@ -36,11 +36,6 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Menu Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <MenuItem Header="Действия">
-                <MenuItem Header="Справка" Width="Auto" Click="Help_OnClick"></MenuItem>
-                <Separator></Separator>
-                <MenuItem Header="Выход" Click="MenuExit_OnClick"></MenuItem>
-            </MenuItem>
         </Menu>
         <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom">Создание администратора</Label>
         <Label Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom">Логин</Label>
