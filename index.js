@@ -22,7 +22,7 @@ req.onreadystatechange = function(){
 							"<th>Команда</th>"+
 							"<th>Роль</th></tr>";
 	
-	for (var i = 0; i < ulist.length; i++){
+	for (var i = 0; i < ulist.students.length; i++){
 		var sudata = ulist.students[i];
 		
 		stra += "<tr>";
